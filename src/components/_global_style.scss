@@ -1,0 +1,15 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    background: #c2ea00;
+    background-repeat: no-repeat;
+    //background-image: url("../../public/a1.jpg");
+}
