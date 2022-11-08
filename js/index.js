@@ -1,19 +1,25 @@
-let botonMascota = document.getElementById("boton-mascota");
-
-botonMascota.addEventListener("click", sMascota);
-
-
 // VARIABLES GOBLALES 
 
 let ataque;
-
 let ataqueEnemigo;
-
-let cell;
 
 let vidas = 3;
 let enemigo = 3;
 
+let caballeros = [];
+let opciones;
+
+let charmander;
+let blobasor;
+let turtle;
+
+let petJugador;
+
+let ataquesCaballeros;
+
+let botonFuego;
+let botonAgua;
+let botonTierra;
 
 //DESAPARECER
 
@@ -23,22 +29,102 @@ esconder.style.display = "none";
 let smooth = document.getElementById('reiniciar');
 smooth.style.display = "none";
 
-// BOTONES DE ATAQUE
+// BOTONES 
 
-let botonFuego = document.getElementById("boton-fuego");
-botonFuego.addEventListener("click", ataqueFuego);
+let botonMascota = document.getElementById("boton-mascota");
+botonMascota.addEventListener("click", sMascota);
 
-let botonAgua = document.getElementById("boton-agua");
-botonAgua.addEventListener("click", ataqueAgua);
+// let botonFuego = document.getElementById("boton-fuego");
+// botonFuego.addEventListener("click", ataqueFuego);
 
-let botonTierra = document.getElementById("boton-tierra");
-botonTierra.addEventListener("click", ataqueTierra);
+// let botonAgua = document.getElementById("boton-agua");
+// botonAgua.addEventListener("click", ataqueAgua);
 
-
-//BOTON REINICIAR
+// let botonTierra = document.getElementById("boton-tierra");
+// botonTierra.addEventListener("click", ataqueTierra);
 
 let reiniciar = document.getElementById('reiniciar');
 reiniciar.addEventListener('click', reiniciarJuego);
+
+
+//PERSONAJES 
+
+
+const spanMascota = document.getElementById("mascota-jugador");
+const mascotaEnemigo = document.getElementById("mascota-enemigo");
+
+//SECTIONS
+
+const pet = document.getElementById('pet');
+
+//VIDAS 
+
+const vidasJugador = document.getElementById('vidas-jugador');
+const vidasEnemigo = document.getElementById('vidas-enemigo');
+
+//LLEGADA
+
+const skate = document.getElementById('skate');
+
+
+//MENSAJE
+
+let sectionMensajes = document.getElementById("mensaje");
+
+
+//CLASS
+
+class Caballeros {
+    constructor(nombre, foto, vida) {
+        this.nombre = nombre;
+        this.foto = foto;
+        this.vida = vida;
+        this.ataque = [];
+    }
+}
+
+let manigoldo = new Caballeros('MANIGOLDO',  '../public/m1.jpg',  3);
+let alfabica = new Caballeros('ALFABICA', '../public/a1.jpg',  3);
+let shaka = new Caballeros('SHAKA', '../public/v1.jpg',  3);
+
+manigoldo.ataque.push(
+    { nombre: "flamas demoniacas", id: 'boton-fuego'},
+    { nombre: 'tezorro del cielo', id: 'boton-tierra'},
+    { nombre: 'rosas demoniacas', id: 'boton-agua'}
+);
+
+alfabica.ataque.push(
+    { nombre: "flamas demoniacas", id: 'boton-fuego'},
+    { nombre: 'tezorro del cielo', id: 'boton-tierra'},
+    { nombre: 'rosas demoniacas', id: 'boton-agua'}
+);
+
+shaka.ataque.push(
+    { nombre: "flamas demoniacas", id: 'boton-fuego'},
+    { nombre: 'tezorro del cielo', id: 'boton-tierra'},
+    { nombre: 'rosas demoniacas', id: 'boton-agua'}
+);
+
+
+// ITERACION
+
+caballeros.push(manigoldo, alfabica, shaka);
+
+caballeros.forEach((caballeros) => {
+    opciones =`
+        <section class="soilder">
+            <img src=${caballeros.foto}  alt=${caballeros.nombre}/>
+            <label for="charmander">${caballeros.nombre}</label>
+            <input type="radio" name="mascota" id=${caballeros.nombre} />
+        </section>
+    `;
+
+    pet.innerHTML += opciones;
+
+    charmander = document.getElementById("MANIGOLDO");
+    blobasor = document.getElementById("ALFABICA");
+    turtle = document.getElementById("SHAKA");
+})
 
 // SELECCIONAR MASCOTA
 
@@ -50,30 +136,60 @@ function sMascota () {
     let esconder = document.getElementById('ataque');
     esconder.style.display = "flex";
 
-    let charmander = document.getElementById("charmander");
-    let blobasor = document.getElementById("blobasor");
-    let turtle = document.getElementById("turtle");
-    let spanMAscota = document.getElementById("mascota-jugador");
-
     if(charmander.checked) {
-        spanMAscota.innerHTML = " MANIGOLDO ";
+        spanMascota.innerHTML = charmander.id;
+        petJugador = charmander.id;
     } else if (blobasor.checked) {
-        spanMAscota.innerHTML = " ALFABICA ";
+        spanMascota.innerHTML = blobasor.id;
+        petJugador = blobasor.id;
     } else if (turtle.checked) {
-        spanMAscota.innerHTML = " SHAKA ";
+        spanMascota.innerHTML = turtle.id;
+        petJugador = turtle.id;
     } else {
         alert("elije");
     }
 
+    extraerAtaques(petJugador);
     llegada();
     enemigoMascota();
     
 }
 
+function extraerAtaques(petJugador) {
+    let ataques;
+
+    for (let i = 0; i < caballeros.length; i++) {
+        if (petJugador === caballeros[i].nombre) {
+            ataques = caballeros[i].ataque;
+        }
+    }
+
+    console.log(ataques);
+    mostarAtaques(ataques);
+}    
+
+function mostarAtaques(ataques) {
+    ataques.forEach((ataques) => {
+        ataquesCaballeros = `
+        <button id=${ataques.id}>${ataques.id}</button>
+        `;
+
+        esconder.innerHTML += ataquesCaballeros;
+    })
+
+    botonFuego = document.getElementById("boton-fuego");
+    botonAgua = document.getElementById("boton-agua");
+    botonTierra = document.getElementById("boton-tierra");
+    botonFuego.addEventListener("click", ataqueFuego);
+    botonAgua.addEventListener("click", ataqueAgua);
+    botonTierra.addEventListener("click", ataqueTierra);
+}
+
 function enemigoMascota() {
 
-    let ataqueAleatoreo = juego(1, 3);
-    let mascotaEnemigo = document.getElementById("mascota-enemigo");
+    let ataqueAleatoreo = juego(0, caballeros.length -1);
+
+    mascotaEnemigo.innerHTML = caballeros[ataqueAleatoreo].nombre;
 
     let img = document.createElement('img');
     img.style.width = "100px";
@@ -81,18 +197,14 @@ function enemigoMascota() {
     img2.style.width = "100px";
     let img3 = document.createElement('img');
     img3.style.width = "100px";
-
     
-    if (ataqueAleatoreo == 1) {
-        mascotaEnemigo.innerHTML = " MANIGOLDO ";
+    if (ataqueAleatoreo == 0) {
         img.src ="../public/m2.jpg"
         skate.appendChild(img);
-    } else if (ataqueAleatoreo == 2) {
-        mascotaEnemigo.innerHTML = " ALFABICA ";
+    } else if (ataqueAleatoreo == 1) {
         img2.src = "../public/a2.jpg";
         skate.appendChild(img2);
     } else  {
-        mascotaEnemigo.innerHTML = " SHAKA ";
         img3.src = "../public/v1.jpg";
         skate.appendChild(img3);
     }
@@ -140,9 +252,6 @@ function aleatorioEnemigo() {
 
 function combate() {
 
-    let vidasJugador = document.getElementById('vidas-jugador');
-    let vidasEnemigo = document.getElementById('vidas-enemigo');
-    
     if(ataque == ataqueEnemigo) {
         mensaje('Empate');
     } else if((ataque == 'DEMONIC FLAMES' && ataqueEnemigo == 'TREASURE OD HEAVEN') || (ataque == 'DIABLOIC ROSES' && ataqueEnemigo == 'DEMONIC FLAMES') || (ataque == 'TREASURE OD HEAVEN' && ataqueEnemigo == 'DIABLOIC ROSES')) {
@@ -162,26 +271,14 @@ function combate() {
 
 function llegada() {
 
-    let charmander = document.getElementById("charmander");
-    let blobasor = document.getElementById("blobasor");
-    let turtle = document.getElementById("turtle");
-
     let img = document.createElement('img');
-    // img.src = "../public/a2.jpg"
     img.style.width = "100px";
 
     let img2 = document.createElement('img');
-    // img2.src = "../public/m2.jpg";
     img2.style.width = "100px";
     
     let img3 = document.createElement('img');
-    // img3.src = "../public/v1.jpg";
     img3.style.width = "100px";
-
-    let skate = document.getElementById('skate');
-    // skate.appendChild(img);
-    // skate.appendChild(img2);
-    // skate.appendChild(img3);
 
     // condicion
 
@@ -195,15 +292,19 @@ function llegada() {
         img3.src = "../public/v1.jpg";
         skate.appendChild(img3);
     }
+
 }
+
+
 
 function mensaje(resultado) {
 
     let parrafo = document.createElement('p');
     parrafo.innerHTML = "you attacked with " + ataque + " your enemy attacked with " + ataqueEnemigo + ' result ' + resultado;
 
-    let sectionMensajes = document.getElementById("mensaje");
+  
     sectionMensajes.appendChild(parrafo);
+
 
 }
 
@@ -221,13 +322,12 @@ function final(resultado) {
     let sectionMensaje = document.getElementById('mensaje');
     sectionMensaje.appendChild(parrafo);
 
-    let botonFuego = document.getElementById("boton-fuego");
     botonFuego.disabled = true;
 
-    let botonAgua = document.getElementById("boton-agua");
+
     botonAgua.disabled = true;
 
-    let botonTierra = document.getElementById("boton-tierra");
+
     botonTierra.disabled = true;
 }
 
@@ -235,11 +335,12 @@ function final(resultado) {
 
 function revisicionVidas() {
 
-    if(enemigo === 0) {
+    if(enemigo == 0) {
         final('ganaste');
-    } else if (enemigo === 0) {
+    } else if (enemigo == 0) {
         final('perdiste');
     }
+
 }
 
 // REINICIAR JUEGO
