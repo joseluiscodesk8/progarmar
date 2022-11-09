@@ -22,10 +22,15 @@ let botonFuego;
 let botonAgua;
 let botonTierra;
 
-let ataqueCaballeros;
 
 let botones = [];
 let ataqueJugador = [];
+
+let indexAtaqueJugador;
+let indexAtaqueEnemigo;
+
+let ataquesDelJugador;
+let ataquesDelEnemigo;
 
 //DESAPARECER
 
@@ -198,7 +203,7 @@ function mostarAtaques(ataques) {
 function secuenciaAtaque() {
     botones.forEach((boton) => {
         boton.addEventListener('click', (e) => {
-            console.log(e);
+            // console.log(e);
             if (e.target.textContent === 'boton-fuego') {
                 ataqueJugador.push('DEMONIC FLAMES');
                 console.log(ataqueJugador);
@@ -212,10 +217,11 @@ function secuenciaAtaque() {
                 console.log(ataqueJugador);
                 boton.style.background = '#1416';
             }
+            aleatorioEnemigo();
         });
     })
 
-    aleatorioEnemigo();
+  
     
 }
 
@@ -225,23 +231,23 @@ function enemigoMascota() {
 
     mascotaEnemigo.innerHTML = caballeros[aleatoreo].nombre;
 
-    // let img = document.createElement('img');
-    // img.style.width = "100px";
-    // let img2 = document.createElement('img');
-    // img2.style.width = "100px";
-    // let img3 = document.createElement('img');
-    // img3.style.width = "100px";
+    let img = document.createElement('img');
+    img.style.width = "100px";
+    let img2 = document.createElement('img');
+    img2.style.width = "100px";
+    let img3 = document.createElement('img');
+    img3.style.width = "100px";
     
-    // if (aleatoreo == 0) {
-    //     img.src ="../public/m2.jpg"
-    //     skate.appendChild(img);
-    // } else if (aleatoreo == 1) {
-    //     img2.src = "../public/a2.jpg";
-    //     skate.appendChild(img2);
-    // } else  {
-    //     img3.src = "../public/v1.jpg";
-    //     skate.appendChild(img3);
-    // }
+    if (aleatoreo == 0) {
+        img.src ="../public/m2.jpg"
+        skate.appendChild(img);
+    } else if (aleatoreo == 1) {
+        img2.src = "../public/a2.jpg";
+        skate.appendChild(img2);
+    } else  {
+        img3.src = "../public/v1.jpg";
+        skate.appendChild(img3);
+    }
 
     ataqueCaballeroEnemigo = caballeros[aleatoreo].ataque;
     secuenciaAtaque();
@@ -253,37 +259,55 @@ function enemigoMascota() {
 
 function aleatorioEnemigo() {
 
-    let ataqueAleatorio = juego(0, ataqueCaballeros.length -1);
+    let ataqueAleatorio = juego(0, ataqueCaballeroEnemigo.length -1);
 
-    if (ataqueAleatorio == 1) {
+    if (ataqueAleatorio == 0 || ataqueAleatorio == 1) {
         ataqueEnemigo.push("DEMONIC FLAMES");
     } else if (ataqueAleatorio == 2) {
         ataqueEnemigo.push("DIABLOIC ROSES");
     } else {
         ataqueEnemigo.push("TREASURE OD HEAVEN");
     }
-    console.log(ataqueAleatorio);
-   combate();
+    console.log(ataqueEnemigo);
+    iniciarPelea();
 
+}
+
+
+function iniciarPelea() {
+    if(ataqueJugador.length === 3) {
+        combate();
+    }
 }
 
 // COMBATE
 
+function indexAmbos(jugador, enemigo) {
+    indexAtaqueJugador = ataqueJugador[jugador];
+    indexAtaqueEnemigo = ataqueEnemigo[enemigo];
+}
+
 function combate() {
 
-    if(ataque == ataqueEnemigo) {
-        mensaje('Empate');
-    } else if((ataque == 'DEMONIC FLAMES' && ataqueEnemigo == 'TREASURE OD HEAVEN') || (ataque == 'DIABLOIC ROSES' && ataqueEnemigo == 'DEMONIC FLAMES') || (ataque == 'TREASURE OD HEAVEN' && ataqueEnemigo == 'DIABLOIC ROSES')) {
-        mensaje('ganaste');
-        enemigo--;
-        vidasEnemigo.innerHTML = enemigo;
-    } else {
-        mensaje('perdiste');
-        vidas--;
-        vidasJugador.innerHTML = vidas;
+    for ( let i = 0; i < ataqueJugador.length; i++) {
+        if(ataqueJugador[i] === ataqueEnemigo[i]) {
+            indexAmbos(i, i)
+            mensaje('Empate');
+        } else if ((ataqueJugador[1] && ataqueEnemigo[2]) || (ataqueJugador[2] && ataqueEnemigo[3]) || (ataqueJugador[3] && ataqueEnemigo[1])) {
+            indexAmbos(i,i);
+            mensaje('ganaste');
+            enemigo--;
+            vidasEnemigo.innerHTML = enemigo;
+        } else {
+            indexAmbos(i,i);
+            mensaje('perdiste');
+            vidas--;
+            vidasJugador.innerHTML = vidas;
         }
+    }
         revisicionVidas();
 }
+
 
 
 // CREAR MENSAJE
@@ -318,12 +342,16 @@ function llegada() {
 
 function mensaje(resultado) {
 
-    let parrafo = document.createElement('p');
-    parrafo.innerHTML = "you attacked with " + ataque + " your enemy attacked with " + ataqueEnemigo + ' result ' + resultado;
+    let nuevoAtaqueJugador = document.createElement('p');
+    let nuevoAtaqueEnemigo = document.createElement('p');
 
-  
-    sectionMensajes.appendChild(parrafo);
+    sectionMensajes.innerHTML = resultado;
 
+    nuevoAtaqueJugador.innerHTML = indexAtaqueJugador;
+    nuevoAtaqueEnemigo.innerHTML = indexAtaqueEnemigo;
+
+    // ataquesDelJugador.appendChild(nuevoAtaqueJugador);
+    // ataquesDelEnemigo.appendChild(nuevoAtaqueEnemigo);
 
 }
 
