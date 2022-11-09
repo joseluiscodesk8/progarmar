@@ -1,7 +1,7 @@
 // VARIABLES GOBLALES 
 
 let ataque;
-let ataqueEnemigo;
+let ataqueEnemigo =[];
 
 let vidas = 3;
 let enemigo = 3;
@@ -16,10 +16,16 @@ let turtle;
 let petJugador;
 
 let ataquesCaballeros;
+let ataqueCaballeroEnemigo;
 
 let botonFuego;
 let botonAgua;
 let botonTierra;
+
+let ataqueCaballeros;
+
+let botones = [];
+let ataqueJugador = [];
 
 //DESAPARECER
 
@@ -171,7 +177,7 @@ function extraerAtaques(petJugador) {
 function mostarAtaques(ataques) {
     ataques.forEach((ataques) => {
         ataquesCaballeros = `
-        <button id=${ataques.id}>${ataques.id}</button>
+        <button id=${ataques.id} class="botones-de-ataque" >${ataques.id}</button>
         `;
 
         esconder.innerHTML += ataquesCaballeros;
@@ -180,53 +186,66 @@ function mostarAtaques(ataques) {
     botonFuego = document.getElementById("boton-fuego");
     botonAgua = document.getElementById("boton-agua");
     botonTierra = document.getElementById("boton-tierra");
-    botonFuego.addEventListener("click", ataqueFuego);
-    botonAgua.addEventListener("click", ataqueAgua);
-    botonTierra.addEventListener("click", ataqueTierra);
+    // botonFuego.addEventListener("click", ataqueFuego);
+    // botonAgua.addEventListener("click", ataqueAgua);
+    // botonTierra.addEventListener("click", ataqueTierra);
+    botones = document.querySelectorAll('.botones-de-ataque');
+
+    // console.log(botones);
+
+}
+
+function secuenciaAtaque() {
+    botones.forEach((boton) => {
+        boton.addEventListener('click', (e) => {
+            console.log(e);
+            if (e.target.textContent === 'boton-fuego') {
+                ataqueJugador.push('DEMONIC FLAMES');
+                console.log(ataqueJugador);
+                boton.style.background = '#1416';
+            } else if (e.target.textContent === 'boton-agua') {
+                ataqueJugador.push('DIABLOIC ROSES');
+                console.log(ataqueJugador);
+                boton.style.background = '#1416';
+            } else {
+                ataqueJugador.push('TREASURE OD HEAVEN');
+                console.log(ataqueJugador);
+                boton.style.background = '#1416';
+            }
+        });
+    })
+
+    aleatorioEnemigo();
+    
 }
 
 function enemigoMascota() {
 
-    let ataqueAleatoreo = juego(0, caballeros.length -1);
+    let aleatoreo = juego(0, caballeros.length -1);
 
-    mascotaEnemigo.innerHTML = caballeros[ataqueAleatoreo].nombre;
+    mascotaEnemigo.innerHTML = caballeros[aleatoreo].nombre;
 
-    let img = document.createElement('img');
-    img.style.width = "100px";
-    let img2 = document.createElement('img');
-    img2.style.width = "100px";
-    let img3 = document.createElement('img');
-    img3.style.width = "100px";
+    // let img = document.createElement('img');
+    // img.style.width = "100px";
+    // let img2 = document.createElement('img');
+    // img2.style.width = "100px";
+    // let img3 = document.createElement('img');
+    // img3.style.width = "100px";
     
-    if (ataqueAleatoreo == 0) {
-        img.src ="../public/m2.jpg"
-        skate.appendChild(img);
-    } else if (ataqueAleatoreo == 1) {
-        img2.src = "../public/a2.jpg";
-        skate.appendChild(img2);
-    } else  {
-        img3.src = "../public/v1.jpg";
-        skate.appendChild(img3);
-    }
+    // if (aleatoreo == 0) {
+    //     img.src ="../public/m2.jpg"
+    //     skate.appendChild(img);
+    // } else if (aleatoreo == 1) {
+    //     img2.src = "../public/a2.jpg";
+    //     skate.appendChild(img2);
+    // } else  {
+    //     img3.src = "../public/v1.jpg";
+    //     skate.appendChild(img3);
+    // }
 
-}
+    ataqueCaballeroEnemigo = caballeros[aleatoreo].ataque;
+    secuenciaAtaque();
 
-// TIPOS DE ATAQUE
-
-function ataqueFuego() {
-    ataque = "DEMONIC FLAMES";
-    aleatorioEnemigo();
-}
-
-
-function ataqueAgua() {
-    ataque = "DIABLOIC ROSES";
-    aleatorioEnemigo();
-}
-
-function ataqueTierra() {
-    ataque = "TREASURE OD HEAVEN";
-    aleatorioEnemigo();
 }
 
 // ATAQUE ENEMIGO 
@@ -234,16 +253,16 @@ function ataqueTierra() {
 
 function aleatorioEnemigo() {
 
-    let ataqueAleatorio = juego(1,3);
+    let ataqueAleatorio = juego(0, ataqueCaballeros.length -1);
 
     if (ataqueAleatorio == 1) {
-        ataqueEnemigo = "DEMONIC FLAMES";
+        ataqueEnemigo.push("DEMONIC FLAMES");
     } else if (ataqueAleatorio == 2) {
-        ataqueEnemigo = "DIABLOIC ROSES";
+        ataqueEnemigo.push("DIABLOIC ROSES");
     } else {
-        ataqueEnemigo = "TREASURE OD HEAVEN";
+        ataqueEnemigo.push("TREASURE OD HEAVEN");
     }
-    
+    console.log(ataqueAleatorio);
    combate();
 
 }
