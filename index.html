@@ -5,31 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progarmar</title>
-    <link rel="stylesheet" href="./src/index.css">
-    <script  defer src="/js/index.js"></script>
+    <link rel="stylesheet" href="./src/styles/index.css">
+    <script  defer src="./src/js/warriors.js"></script>
+    <script  defer src="./src/js/index.js"></script>
 </head>
 <body>
     <h1>Knights of the Zodiac</h1>
 
-    <section id="mascotas">
+    <section id="knights">
         <h2>Choose your Knights</h2>
 
-        <section id="pet">
+        <section id="charter">
         </section>
 
-        <button id="boton-mascota">Choose</button>
+        <button 
+        onclick="selectionKnights()"
+        id="boton-charter">Choose</button>
 
     </section>
 
-    <section id="ataque">
+    <section id="attack">
         
         <section>
             <h2>Choose your attack</h2>
         </section>
 
        <section>
-            <p><span id="mascota-jugador"></span> <br/><span id="vidas-jugador">HAS 3 </span> COSMOS</p>
-            <p><span id="mascota-enemigo"></span> <br/><span id="vidas-enemigo">HAS 3 </span> COSMOS</p>
+            <p><span id="knight-player"></span> <br/><span id="lifes-player">HAS 3 </span> COSMOS</p>
+            <p><span id="knight-enemy"></span> <br/><span id="lifes-enemy">HAS 3 </span> COSMOS</p>
        </section>
 
        <section id="skate">
@@ -37,9 +40,9 @@
        </section>
 
        <section>
-            <!-- <p><button id="boton-fuego">demonic flames</button></p>
+            <p><button id="boton-fuego">demonic flames</button></p>
             <p><button id="boton-agua">Diabolic Roses</button></p>
-            <p><button id="boton-tierra">Tezoro del Cielo</button></p> -->
+            <p><button id="boton-tierra">Tezoro del Cielo</button></p>
        </section>
 
     </section>
@@ -48,7 +51,9 @@
     </section>
 
     <section id="reiniciar">
-        <p><button id="reiniciar">Reload</button></p>
+        <p><button 
+            onclick="reloadGame()"
+            id="reiniciar">Reload</button></p>
     </section>
 </body>
 </html>
