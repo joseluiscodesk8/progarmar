@@ -1,59 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Progarmar</title>
-    <link rel="stylesheet" href="./src/styles/index.css">
-    <script  defer src="./src/js/warriors.js"></script>
-    <script  defer src="./src/js/index.js"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="./src/styles/index.css" />
+    <script defer src="./src/js/warriors.js"></script>
+    <script defer src="./src/js/index.js"></script>
+  </head>
+  <body>
     <h1>Knights of the Zodiac</h1>
 
     <section id="knights">
-        <h2>Choose your Knights</h2>
+      <h2>Choose your Knights</h2>
 
-        <section id="charter">
-        </section>
+      <section id="charter_player"></section>
 
-        <button 
-        onclick="selectionKnights()"
-        id="boton-charter">Choose</button>
-
+      <button onclick="" id="button-charter">Choose</button>
     </section>
 
     <section id="attack">
-        
-        <section>
-            <h2>Choose your attack</h2>
-        </section>
+      <section>
+        <h2>Choose your attack</h2>
+      </section>
 
-       <section>
-            <p><span id="knight-player"></span> <br/><span id="lifes-player">HAS 3 </span> COSMOS</p>
-            <p><span id="knight-enemy"></span> <br/><span id="lifes-enemy">HAS 3 </span> COSMOS</p>
-       </section>
+      <section>
+        <p>
+          <span id="knight-player"></span> <br /><span id="lifes-player"
+            >HAS 3
+          </span>
+          COSMOS
+        </p>
+        <p>
+          <span id="knight-enemy"></span> <br /><span id="lifes-enemy"
+            >HAS 3
+          </span>
+          COSMOS
+        </p>
+      </section>
 
-       <section id="skate">
-     
-       </section>
+      <section id="charter_enemy"></section>
 
-       <section>
-            <p><button id="boton-fuego">demonic flames</button></p>
-            <p><button id="boton-agua">Diabolic Roses</button></p>
-            <p><button id="boton-tierra">Tezoro del Cielo</button></p>
-       </section>
+      <section id="buttons">
+        <button id="button_one"></button>
+        <button id="button_two"></button>
+        <button id="button_three"></button>
+        <button id="button_four"></button>
 
+      </section>
     </section>
 
-    <section id="mensaje">
-    </section>
+    <section id="mensaje"></section>
 
     <section id="reiniciar">
-        <p><button 
-            onclick="reloadGame()"
-            id="reiniciar">Reload</button></p>
+      <p><button onclick="reloadGame()" id="reiniciar">Reload</button></p>
     </section>
-</body>
+  </body>
 </html>

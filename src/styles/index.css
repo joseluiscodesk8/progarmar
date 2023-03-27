@@ -22,29 +22,21 @@ h1:hover {
   scale: 1.2;
 }
 
-section {
+#knights {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
-  margin: 10px auto;
+  width: 70vh;
+  height: 60vh;
+  box-shadow: inset 0 0 25px #000;
+  border-radius: 2%;
+}
+#knights #charter_player {
   display: flex;
-  width: 50%;
-}
-
-#knights {
-  padding: 1%;
-  box-shadow: inset 0 0 55px #000;
-  border-radius: 5px;
-  height: 340px;
-}
-#knights #charter {
-  flex-direction: row;
   justify-content: space-evenly;
-  width: 100%;
-  height: 250px;
 }
-#knights #boton-charter {
+#knights #button-charter {
   width: 60px;
   height: 25px;
   font-weight: 600;
@@ -55,14 +47,17 @@ section {
   box-shadow: 0 0 5px #000;
   transition: 0.8s;
 }
-#knights #boton-charter:hover {
+#knights #button-charter:hover {
   scale: 1.1;
   background: #c2ae00;
   box-shadow: 0 0 25px #000;
 }
 
 .soilder {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
 }
 .soilder img {
   width: 100px;
@@ -78,19 +73,25 @@ section {
 }
 
 #attack {
-  padding: 2%;
-  box-shadow: inset 0 0 55px #000;
-  border-radius: 5px;
-  height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 70vh;
+  height: 60vh;
+  box-shadow: inset 0 0 25px #000;
+  border-radius: 2%;
 }
-#attack section {
-  flex-direction: row;
-  justify-content: space-evenly;
+#attack #buttons {
+  display: flex;
   width: 100%;
+  height: 100px;
+  border: 1px solid;
 }
-#attack #boton-fuego,
-#attack #boton-agua,
-#attack #boton-tierra {
+#attack #button_one,
+#attack #button_two,
+#attack #button_three,
+#attack #button_four {
   width: 60px;
   height: 25px;
   font-weight: 600;
@@ -102,20 +103,21 @@ section {
   transition: 0.8s;
   width: 140px;
 }
-#attack #boton-fuego:hover,
-#attack #boton-agua:hover,
-#attack #boton-tierra:hover {
+#attack #button_one:hover,
+#attack #button_two:hover,
+#attack #button_three:hover,
+#attack #button_four:hover {
   scale: 1.1;
   background: #c2ae00;
   box-shadow: 0 0 25px #000;
 }
 
-#skate {
+#charter_enemy {
   display: flex;
   width: 100%;
   transition: 0.8s;
 }
-#skate:hover {
+#charter_enemy:hover {
   width: 30%;
 }
 
