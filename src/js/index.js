@@ -5,11 +5,14 @@ let attackKnights = [];
 let attackEnemy = [];
 let knightPlayer;
 
-let buttons = [];
+let charter;
+
+let buttonsAttack = [];
 
 // CHARTERS
 
 const charterPlayer = document.getElementById("charter_player");
+const charterSelected = document.getElementById("charter_selected");
 const charterEnemy = document.getElementById("charter_enemy");
 const spanPlayer = document.getElementById("knight-player");
 
@@ -18,6 +21,7 @@ let button_one = document.getElementById("button_one");
 let button_two = document.getElementById("button_two");
 let button_three = document.getElementById("button_three");
 let button_four = document.getElementById("button_four");
+let button = document.getElementById("buttons");
 
 // CHOOSE
 
@@ -36,24 +40,30 @@ hideAttack.style.display = "none";
 
 /// RENDER CHARTES
 
-function playerKnights() {
+function playerCharter() {
   knights.push(aries, tauro, geminis, cancer);
 
   knights.forEach((knights) => {
     options = `
-  <section class="soilder">
-            <img src=${knights.img}  alt=${knights.name}/>
-            <label for=${knights.name}>${knights.name}</label>
-            <input type="radio" name="charterPlayer" id=${knights.name} />
-        </section>
-  `;
+    <section 
+          class="soilder">
+          <img src=${knights.img}  alt=${knights.name}/>
+          <label for=${knights.name}>${knights.name}</label>
+          <input type="radio" name="charterPlayer" id=${knights.name} />
+      </section>
+`;
     charterPlayer.innerHTML += options;
+
+    shion = document.getElementById("ARIES");
+    hasgrad = document.getElementById("TAURO");
+    aspros = document.getElementById("GEMINIS");
+    manigoldo = document.getElementById("CANCER");
   });
 }
 
-/// RENDER ENEMY CHARTER
+playerCharter();
 
-playerKnights();
+/// RENDER ENEMY CHARTER
 
 function enemyCharter() {
   let aleatorio = selection(0, knights.length - 1);
@@ -90,6 +100,27 @@ function enemyCharter() {
 
 // SLECTION CHARTERS
 
+function selected() {
+  let SHION = document.createElement("img");
+  let HASGRAD = document.createElement("img");
+  let ASPROS = document.createElement("img");
+  let MANIGOLDO = document.createElement("img");
+
+  if (shion.checked) {
+    SHION.src = "../../public/aries.jpg";
+    charterSelected.appendChild(SHION);
+  } else if (hasgrad.checked) {
+    HASGRAD.src = `../../public/tauro.jpg`;
+    charterSelected.appendChild(HASGRAD);
+  } else if (aspros.checked) {
+    ASPROS.src = `../../public/geminis.jpg`;
+    charterSelected.appendChild(ASPROS);
+  } else if (manigoldo.checked) {
+    MANIGOLDO.src = `../../public/cancer.jpg`;
+    charterSelected.appendChild(MANIGOLDO);
+  }
+}
+
 function selectionKnights() {
   let hideKnights = document.getElementById("knights");
   hideKnights.style.display = "none";
@@ -97,34 +128,52 @@ function selectionKnights() {
   let hideAttack = document.getElementById("attack");
   hideAttack.style.display = "flex";
 
-  // if (aries.checked) {
-  //   spanPlayer.innerHTML = aries.id;
-  //   charterPlayer = aries.id;
-  //   console.log("selection");
-  // }
-  // } else if (hasgrad.checked) {
-  //   charterPlayer.innerHTML = tauro.id;
-  //   knightPlayer = tauro.id;
-  // } else {
-  //   alert("elije TU CHARTER");
-  // }
+  if (shion.checked) {
+    spanPlayer.innerHTML = shion.id;
+    charter = shion.id;
+  } else if (hasgrad.checked) {
+    spanPlayer.innerHTML = hasgrad.id;
+    charter = hasgrad.id;
+  } else if (aspros.checked) {
+    spanPlayer.innerHTML = aspros.id;
+    charter = aspros.id;
+  } else if (manigoldo.checked) {
+    spanPlayer.innerHTML = manigoldo.id;
+    charter = manigoldo.id;
+  }
+  selected();
   enemyCharter();
+  buttonAttack();
 }
 
 // selectionKnights();
 
-// BUTTONS OF ATTACK
+/// BUTTONS
 
-// function buttonsAttack(attacks) {
-//   attacks.forEach((attacks) => {
-//     attackKnights = `
-//     <button id=${knights[aleatorio]}>skate</button>
-//     `;
-//     hideAttack.innerHTML += attackKnights;
-//   });
-//   console.log("attachj");
-// }
+function selectedButton() {
+  // let oneHouse = document.createElement("div");
 
+  if (shion.checked) {
+    button.innerHTML += attack;
+  }
+}
+
+function buttonAttack() {
+  buttonsAttack.push(oneHome, twoHome);
+
+  buttonsAttack.forEach((buttonsAttack) => {
+    attack = `
+    <button id=${buttonsAttack.button_one}>${buttonsAttack.button_one}</button>
+    <button id=${buttonsAttack.button_two}>${buttonsAttack.button_two}</button>
+    <button id=${buttonsAttack.button_three}>${buttonsAttack.button_three}</button>
+    <button id=${buttonsAttack.button_four}>${buttonsAttack.button_four}</button>
+    `;
+    // button.innerHTML += attack;
+  });
+  selectedButton();
+}
+
+/////////////////////
 function selection(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }

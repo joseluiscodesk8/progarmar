@@ -20,7 +20,7 @@ class Knights {
     this.name = name;
     this.img = img;
     this.life = life;
-    this.attack = [];
+    // this.attack = [];
   }
 }
 
@@ -39,28 +39,52 @@ let picis = new Knights("PICIS", "../public/picis.jpg", life);
 
 //// ATTACK
 
-aries.attack.push(
-  {
-    name: "CRYSTAL_wALL",
-    id: "button_one",
-  },
-  {
-    name: "STARLIGHT_EXTINCTION",
-    id: "button_two",
-  },
-  {
-    name: "STARDUST_REVOLUTION",
-    id: "button_three",
-  },
-  {
-    name: "CRYSTAL_NET",
-    id: "button:four",
+class ButtonsAttack {
+  constructor(button_one, button_two, button_three, button_four) {
+    this.button_one = button_one;
+    this.button_two = button_two;
+    this.button_three = button_three;
+    this.button_four = button_four;
   }
+}
+
+let oneHome = new ButtonsAttack(
+  "CRYSTAL_wALL",
+  "STARLIGHT_EXTINCTION",
+  "STARDUST_REVOLUTION",
+  "CRYSTAL_NET"
 );
 
-tauro.attack.push(
-  { name: "GREAT_HRON", id: "button_one" },
-  { name: "TITANIC_SUPERNOVA", id: "button_two" },
-  { name: "EXPLOSIVE_CHARGE", id: "button_three" },
-  { name: "GALATIC_QUAKE", id: "button_four" }
+let twoHome = new ButtonsAttack(
+  "GREAT_HRON",
+  "TITANIC_SUPERNOVA",
+  "EXPLOSIVE_CHARGE",
+  "GALATIC_QUAKE"
 );
+
+// attackKnights = [
+//   (one = [
+//     {
+//       name: "CRYSTAL_wALL",
+//       id: "button_one",
+//     },
+//     {
+//       name: "STARLIGHT_EXTINCTION",
+//       id: "button_two",
+//     },
+//     {
+//       name: "STARDUST_REVOLUTION",
+//       id: "button_three",
+//     },
+//     {
+//       name: "CRYSTAL_NET",
+//       id: "button:four",
+//     },
+//   ]),
+//   (two = [
+//     { name: "GREAT_HRON", id: "button_one" },
+//     { name: "TITANIC_SUPERNOVA", id: "button_two" },
+//     { name: "EXPLOSIVE_CHARGE", id: "button_three" },
+//     { name: "GALATIC_QUAKE", id: "button_four" },
+//   ]),
+// ];
