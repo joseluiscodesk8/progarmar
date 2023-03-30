@@ -40,51 +40,96 @@ let picis = new Knights("PICIS", "../public/picis.jpg", life);
 //// ATTACK
 
 class ButtonsAttack {
-  constructor(button_one, button_two, button_three, button_four) {
-    this.button_one = button_one;
-    this.button_two = button_two;
-    this.button_three = button_three;
-    this.button_four = button_four;
+  constructor(name_one, name_two, name_three, name_four) {
+    this.name_one = name_one;
+    this.name_two = name_two;
+    this.name_three = name_three;
+    this.name_four = name_four;
   }
 }
 
 let oneHome = new ButtonsAttack(
-  "CRYSTAL_wALL",
-  "STARLIGHT_EXTINCTION",
-  "STARDUST_REVOLUTION",
-  "CRYSTAL_NET"
+  "CRYSTAL WALL",
+  "STARLIGHT EXTINCTION",
+  "STARDUST REVOLUTION",
+  "CRYSTAL NET"
 );
 
 let twoHome = new ButtonsAttack(
-  "GREAT_HRON",
-  "TITANIC_SUPERNOVA",
-  "EXPLOSIVE_CHARGE",
-  "GALATIC_QUAKE"
+  "GREAT HRON",
+  "TITANIC SUPERNOVA",
+  "EXPLOSIVE CHARGE",
+  "GALATIC QUAKE"
 );
 
-// attackKnights = [
-//   (one = [
-//     {
-//       name: "CRYSTAL_wALL",
-//       id: "button_one",
-//     },
-//     {
-//       name: "STARLIGHT_EXTINCTION",
-//       id: "button_two",
-//     },
-//     {
-//       name: "STARDUST_REVOLUTION",
-//       id: "button_three",
-//     },
-//     {
-//       name: "CRYSTAL_NET",
-//       id: "button:four",
-//     },
-//   ]),
-//   (two = [
-//     { name: "GREAT_HRON", id: "button_one" },
-//     { name: "TITANIC_SUPERNOVA", id: "button_two" },
-//     { name: "EXPLOSIVE_CHARGE", id: "button_three" },
-//     { name: "GALATIC_QUAKE", id: "button_four" },
-//   ]),
-// ];
+let threeHome = new ButtonsAttack(
+  "GALAXY EXPLOSION",
+  "TO ANOTHER DIMENSION",
+  "DOUBLE FACE DAMNED",
+  "DARK CURSE"
+);
+
+let fourHome = new ButtonsAttack(
+  "DEMONIC FLAMES",
+  "SOUL EXPLOSION",
+  "UNDERWORLD",
+  "DEATH DIMENSION"
+);
+
+// BUTTONS OF ATTACK
+
+function buttonAries() {
+  buttonsAttack.push(oneHome);
+
+  buttonsAttack.forEach((buttonsAttack) => {
+    attack = `
+    <button id=${buttonsAttack.name_one}>${buttonsAttack.name_one}</button>
+    <button id=${buttonsAttack.name_two}>${buttonsAttack.name_two}</button>
+    <button id=${buttonsAttack.name_three}>${buttonsAttack.name_three}</button>
+    <button id=${buttonsAttack.name_four}>${buttonsAttack.name_four}</button>
+    `;
+    section_button.innerHTML += attack;
+  });
+}
+
+function buttonTauro() {
+  buttonsAttack.push(twoHome);
+
+  buttonsAttack.forEach((buttonsAttack) => {
+    attack = `
+    <button id=${buttonsAttack.name_one}>${buttonsAttack.name_one}</button>
+    <button id=${buttonsAttack.name_two}>${buttonsAttack.name_two}</button>
+    <button id=${buttonsAttack.name_three}>${buttonsAttack.name_three}</button>
+    <button id=${buttonsAttack.name_four}>${buttonsAttack.name_four}</button>
+    `;
+    section_button.innerHTML += attack;
+  });
+}
+
+function buttonGeminis() {
+  buttonsAttack.push(threeHome);
+
+  buttonsAttack.forEach((buttonsAttack) => {
+    attack = `
+    <button id=${buttonsAttack.name_one}>${buttonsAttack.name_one}</button>
+    <button id=${buttonsAttack.name_two}>${buttonsAttack.name_two}</button>
+    <button id=${buttonsAttack.name_three}>${buttonsAttack.name_three}</button>
+    <button id=${buttonsAttack.name_four}>${buttonsAttack.name_four}</button>
+    `;
+    section_button.innerHTML += attack;
+  });
+}
+
+function buttonCancer() {
+  buttonsAttack.push(fourHome);
+
+  buttonsAttack.forEach((buttonsAttack) => {
+    attack = `
+    <button id=${buttonsAttack.name_one}>${buttonsAttack.name_one}</button>
+    <button id=${buttonsAttack.name_two}>${buttonsAttack.name_two}</button>
+    <button id=${buttonsAttack.name_three}>${buttonsAttack.name_three}</button>
+    <button id=${buttonsAttack.name_four}>${buttonsAttack.name_four}</button>
+    `;
+    section_button.innerHTML += attack;
+  });
+}

@@ -38,7 +38,7 @@ h1:hover {
 }
 #knights #button-charter {
   width: 60px;
-  height: 25px;
+  height: 30px;
   font-weight: 600;
   background: transparent;
   border: none;
@@ -47,10 +47,9 @@ h1:hover {
   box-shadow: 0 0 5px #000;
   transition: 0.8s;
 }
-#knights #button-charter:hover {
-  scale: 1.1;
+#knights #button-charter:active {
   background: #c2ae00;
-  box-shadow: 0 0 25px #000;
+  box-shadow: 0 0 15px #000;
 }
 
 .soilder {
@@ -116,15 +115,15 @@ h1:hover {
 }
 #attack #buttons {
   display: flex;
-  width: 100%;
-  height: 30px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 90%;
+  height: 180px;
+  padding: 1%;
 }
-#attack #button_one,
-#attack #button_two,
-#attack #button_three,
-#attack #button_four {
+#attack button {
   width: 60px;
-  height: 25px;
+  height: 30px;
   font-weight: 600;
   background: transparent;
   border: none;
@@ -134,18 +133,14 @@ h1:hover {
   transition: 0.8s;
   width: 140px;
 }
-#attack #button_one:hover,
-#attack #button_two:hover,
-#attack #button_three:hover,
-#attack #button_four:hover {
-  scale: 1.1;
+#attack button:active {
   background: #c2ae00;
-  box-shadow: 0 0 25px #000;
+  box-shadow: 0 0 15px #000;
 }
 
 #reiniciar {
   width: 60px;
-  height: 25px;
+  height: 30px;
   font-weight: 600;
   background: transparent;
   border: none;
@@ -154,8 +149,7 @@ h1:hover {
   box-shadow: 0 0 5px #000;
   transition: 0.8s;
 }
-#reiniciar:hover {
-  scale: 1.1;
+#reiniciar:active {
   background: #c2ae00;
-  box-shadow: 0 0 25px #000;
+  box-shadow: 0 0 15px #000;
 }/*# sourceMappingURL=index.css.map */

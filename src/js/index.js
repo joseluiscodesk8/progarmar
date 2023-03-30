@@ -6,8 +6,9 @@ let attackEnemy = [];
 let knightPlayer;
 
 let charter;
-
 let buttonsAttack = [];
+
+let attackKnightEnemy;
 
 // CHARTERS
 
@@ -21,7 +22,7 @@ let button_one = document.getElementById("button_one");
 let button_two = document.getElementById("button_two");
 let button_three = document.getElementById("button_three");
 let button_four = document.getElementById("button_four");
-let button = document.getElementById("buttons");
+let section_button = document.getElementById("buttons");
 
 // CHOOSE
 
@@ -143,40 +144,42 @@ function selectionKnights() {
   }
   selected();
   enemyCharter();
-  buttonAttack();
+  selectedButton();
 }
-
-// selectionKnights();
 
 /// BUTTONS
 
 function selectedButton() {
-  // let oneHouse = document.createElement("div");
-
   if (shion.checked) {
-    button.innerHTML += attack;
+    buttonAries();
+  } else if (hasgrad.checked) {
+    buttonTauro();
+  } else if (aspros.checked) {
+    buttonGeminis();
+  } else if (manigoldo.checked) {
+    buttonCancer();
   }
 }
 
-function buttonAttack() {
-  buttonsAttack.push(oneHome, twoHome);
+/// ATTACK
 
-  buttonsAttack.forEach((buttonsAttack) => {
-    attack = `
-    <button id=${buttonsAttack.button_one}>${buttonsAttack.button_one}</button>
-    <button id=${buttonsAttack.button_two}>${buttonsAttack.button_two}</button>
-    <button id=${buttonsAttack.button_three}>${buttonsAttack.button_three}</button>
-    <button id=${buttonsAttack.button_four}>${buttonsAttack.button_four}</button>
-    `;
-    // button.innerHTML += attack;
-  });
-  selectedButton();
+function playerAttack() {
+  let playerAttack = selection(0, attackKnights.length - 1);
+}
+
+function enemyAttack() {
+  let randomAttack = selection(0, attackKnightEnemy.length - 1);
+  if (randomAttack == 0) {
+    attackEnemy.push("skate");
+    console.log(randomAttack);
+  }
 }
 
 /////////////////////
 function selection(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
+console.log(selection);
 
 function reloadGame() {
   location.reload();

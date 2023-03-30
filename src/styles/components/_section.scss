@@ -73,17 +73,15 @@ h1 {
   & #buttons {
     display: flex;
     // flex-direction: column;
-    // flex-wrap: wrap;
-    // justify-content: space-evenly;
-    width: 100%;
-    height: 30px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 180px;
+    padding: 1%;
     //border: 1px solid;
   }
 
-  #button_one,
-  #button_two,
-  #button_three,
-  #button_four {
+  & button {
     @include mixin.button;
     width: 140px;
   }
