@@ -2,13 +2,20 @@ let knights = [];
 let options;
 let attack;
 let attackKnights = [];
-let attackEnemy = [];
+// let attackEnemy = [];
 let knightPlayer;
 
 let charter;
 let buttonsAttack = [];
 
-let attackKnightEnemy;
+let attackPlayer;
+let attackEnemy;
+
+let max = 5;
+let min = 1;
+
+let indexAttackplayer;
+let indexAttackEnemy;
 
 // CHARTERS
 
@@ -18,10 +25,6 @@ const charterEnemy = document.getElementById("charter_enemy");
 const spanPlayer = document.getElementById("knight-player");
 
 // BUTTONS OF ATTACK
-let button_one = document.getElementById("button_one");
-let button_two = document.getElementById("button_two");
-let button_three = document.getElementById("button_three");
-let button_four = document.getElementById("button_four");
 let section_button = document.getElementById("buttons");
 
 // CHOOSE
@@ -31,13 +34,19 @@ choose_charter.addEventListener("click", selectionKnights);
 
 //  LIFES
 
-const lifePlayer = document.getElementById("lifes-player");
-const lifesEnemy = document.getElementById("lifes-enemy");
+let lifePlayer = document.getElementById("lifes-player");
+let lifesEnemy = document.getElementById("lifes-enemy");
+let playerLife = 3;
+let enemyLife = 3;
+lifePlayer.innerHTML = playerLife;
+lifesEnemy.innerHTML = enemyLife;
 
 //HIDE
 
 let hideAttack = document.getElementById("attack");
 hideAttack.style.display = "none";
+
+window.addEventListener("DOMContentLoaded", playerCharter());
 
 /// RENDER CHARTES
 
@@ -61,8 +70,6 @@ function playerCharter() {
     manigoldo = document.getElementById("CANCER");
   });
 }
-
-playerCharter();
 
 /// RENDER ENEMY CHARTER
 
@@ -145,6 +152,7 @@ function selectionKnights() {
   selected();
   enemyCharter();
   selectedButton();
+  // combat();
 }
 
 /// BUTTONS
@@ -159,27 +167,60 @@ function selectedButton() {
   } else if (manigoldo.checked) {
     buttonCancer();
   }
+
+  // enemyAttack();
 }
 
 /// ATTACK
 
 function playerAttack() {
-  let playerAttack = selection(0, attackKnights.length - 1);
+  attackPlayer = selection(1, 5);
+  console.log(attackPlayer);
+  enemyAttack();
+  combat();
 }
 
 function enemyAttack() {
-  let randomAttack = selection(0, attackKnightEnemy.length - 1);
-  if (randomAttack == 0) {
-    attackEnemy.push("skate");
-    console.log(randomAttack);
+  attackEnemy = selection(1, 5);
+  console.log(attackEnemy);
+}
+
+// LIFE
+
+function checkLife() {
+  if (lifesEnemy == 0) {
+    alert("ganaste");
+  } else {
+    console.log("perdiste");
   }
+}
+
+/// COMBAT
+
+// function indexBoth(playerAttack, enemyAttack) {
+//   indexAttackplayer = attackPlayer[player];
+//   indexAttackEnemy = attackEnemy[enemy];
+// }
+
+function combat() {
+  if (attackPlayer < attackEnemy) {
+    playerLife--;
+    lifePlayer.innerHTML = playerLife;
+    console.log("menor");
+  } else if (attackPlayer > attackEnemy) {
+    enemyLife--;
+    lifesEnemy.innerHTML = enemyLife;
+    console.log("mayor");
+  } else {
+    console.log("empate");
+  }
+  checkLife();
 }
 
 /////////////////////
 function selection(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-console.log(selection);
 
 function reloadGame() {
   location.reload();

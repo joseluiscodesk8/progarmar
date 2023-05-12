@@ -423,3 +423,11 @@ function elegiste(jugada) {
 
 
 console.log(pc);
+
+/////////////////////////
+let max = 10;
+let min = 1;
+
+let alAzar = Math.floor(Math.random() * (max - min + 1) + min);
+
+console.log(alAzar);
