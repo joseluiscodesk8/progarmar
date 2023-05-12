@@ -1,15 +1,25 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    background: #c2ea00;
-    background-repeat: no-repeat;
-    //background-image: url("../../public/a1.jpg");
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background: linear-gradient(
+    45deg,
+    #1f1c04,
+    #363002,
+    #b5a300,
+    #ccc,
+    #b5a300,
+    #363002,
+    #1f1c04
+  );
+  background-repeat: no-repeat;
+  //background-image: url("../../public/a1.jpg");
 }

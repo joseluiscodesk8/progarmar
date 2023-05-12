@@ -51,11 +51,24 @@ window.addEventListener("DOMContentLoaded", playerCharter());
 /// RENDER CHARTES
 
 function playerCharter() {
-  knights.push(aries, tauro, geminis, cancer);
+  knights.push(
+    aries,
+    tauro,
+    aries,
+    aries,
+    aries,
+    aries,
+    aries,
+    aries,
+    aries,
+    aries,
+    cancer,
+    geminis
+  );
 
   knights.forEach((knights) => {
     options = `
-    <section 
+    <section
           class="soilder">
           <img src=${knights.img}  alt=${knights.name}/>
           <label for=${knights.name}>${knights.name}</label>
@@ -70,7 +83,6 @@ function playerCharter() {
     manigoldo = document.getElementById("CANCER");
   });
 }
-
 /// RENDER ENEMY CHARTER
 
 function enemyCharter() {
@@ -195,6 +207,7 @@ function checkLife() {
   }
 }
 
+checkLife();
 /// COMBAT
 
 // function indexBoth(playerAttack, enemyAttack) {
@@ -214,7 +227,6 @@ function combat() {
   } else {
     console.log("empate");
   }
-  checkLife();
 }
 
 /////////////////////

@@ -1,7 +1,8 @@
 @use "../mixin/mixin";
 
 h1 {
-  text-shadow: 0 0 15px #c2ea00;
+  text-align: center;
+  text-shadow: 0 10px 15px #000;
   font-size: 3.5rem;
   transition: 0.8s;
 
@@ -15,7 +16,13 @@ h1 {
 
   & #charter_player {
     display: flex;
-    justify-content: space-evenly;
+    max-width: 92%;
+    position: absolute;
+    left: 10px;
+    gap: 50px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
     //background: #1416;
     //border: 1px solid #000;
   }
@@ -29,7 +36,8 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 200px;
+  justify-content: space-evenly;
+  //width: 100px;
   //border: 4px solid #000;
 
   & img {
@@ -49,7 +57,15 @@ h1 {
 }
 
 #attack {
-  @include mixin.section;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90%;
+  max-width: 500px;
+  height: 60vh;
+  box-shadow: inset 0 0 45px #000;
+  border-radius: 2%;
 
   & #cosmos {
     display: flex;
@@ -60,6 +76,8 @@ h1 {
 
   & #combat {
     display: flex;
+    justify-content: space-evenly;
+    width: 100%;
     //border: 1px solid;
 
     & #charter_selected {
@@ -72,11 +90,12 @@ h1 {
 
   & #buttons {
     display: flex;
-    // flex-direction: column;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    width: 90%;
-    height: 180px;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+    height: 90px;
     padding: 1%;
     //border: 1px solid;
   }
