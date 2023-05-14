@@ -10,16 +10,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background: linear-gradient(
-    45deg,
-    #1f1c04,
-    #363002,
-    #b5a300,
-    #ccc,
-    #b5a300,
-    #363002,
-    #1f1c04
-  );
+  background: linear-gradient(0deg, #1f1c04, #b5a300, #b5a300, #1f1c04);
   background-repeat: no-repeat;
   //background-image: url("../../public/a1.jpg");
 }

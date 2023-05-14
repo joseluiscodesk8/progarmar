@@ -2,8 +2,9 @@
 
 h1 {
   text-align: center;
-  text-shadow: 0 10px 15px #000;
+  text-shadow: 0 0px 5px #000, 0 0px 20px #000, 0 0px 30px #1f1c04;
   font-size: 3.5rem;
+  color: #b5a300;
   transition: 0.8s;
 
   &:hover {

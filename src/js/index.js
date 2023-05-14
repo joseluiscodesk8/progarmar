@@ -54,16 +54,15 @@ function playerCharter() {
   knights.push(
     aries,
     tauro,
-    aries,
-    aries,
-    aries,
-    aries,
-    aries,
-    aries,
-    aries,
-    aries,
+    geminis,
     cancer,
-    geminis
+    leo,
+    virgo,
+    libra,
+    escorpion,
+    sagitario,
+    acuario,
+    picis
   );
 
   knights.forEach((knights) => {
@@ -81,6 +80,14 @@ function playerCharter() {
     hasgrad = document.getElementById("TAURO");
     aspros = document.getElementById("GEMINIS");
     manigoldo = document.getElementById("CANCER");
+    regulus = document.getElementById("LEO");
+    asmita = document.getElementById("VIRGO");
+    dohko = document.getElementById("LIBRA");
+    kardia = document.getElementById("ESCORPION");
+    sisifo = document.getElementById("SAGITARIO");
+    cid = document.getElementById("CAPRICORNIO");
+    degel = document.getElementById("ACURIO");
+    alfabica = document.getElementById("PICIS");
   });
 }
 /// RENDER ENEMY CHARTER
@@ -115,6 +122,30 @@ function enemyCharter() {
   } else if (aleatorio == 3) {
     cancer.src = `${knights[aleatorio].img}`;
     charterEnemy.appendChild(cancer);
+  } else if (aleatorio == 4) {
+    leo.src = `${knights[aleatorio].img}`;
+    charterEnemy.appendChild(cancer);
+  } else if (aleatorio == 5) {
+    virgo.src = `${knights[aleatorio].img}`;
+    charterEnemy.appendChild(virgo);
+  } else if (aleatorio == 6) {
+    libra.src = `${knights[aleatorio].img}`;
+    charterEnemy.appendChild(libra);
+  } else if (aleatorio == 7) {
+    escorpion.src = `${knights[aleatorio].img}`;
+    charterEnemy.appendChild(escorpion);
+  } else if (aleatorio == 8) {
+    sagitario.src = `${knights[aleatorio].img}`;
+    charterEnemy.appendChild(sagitario);
+  } else if (aleatorio == 9) {
+    virgo.src = `${knights[aleatorio].img}`;
+    charterEnemy.appendChild(virgo);
+  } else if (aleatorio == 10) {
+    acuario.src = `${knights[aleatorio].img}`;
+    charterEnemy.appendChild(acurio);
+  } else if (aleatorio == 11) {
+    picis.src = `${knights[aleatorio].img}`;
+    charterEnemy.appendChild(picis);
   }
 }
 
@@ -125,6 +156,14 @@ function selected() {
   let HASGRAD = document.createElement("img");
   let ASPROS = document.createElement("img");
   let MANIGOLDO = document.createElement("img");
+  let REGULUS = document.createElement("img");
+  let ASMITA = document.createElement("img");
+  let DOHKO = document.createElement("img");
+  let KARDIA = document.createElement("img");
+  let SISIFO = document.createElement("img");
+  let CID = document.createElement("img");
+  let DEGEL = document.createElement("img");
+  let ALFABICA = document.createElement("img");
 
   if (shion.checked) {
     SHION.src = "../../public/aries.jpg";
@@ -138,6 +177,30 @@ function selected() {
   } else if (manigoldo.checked) {
     MANIGOLDO.src = `../../public/cancer.jpg`;
     charterSelected.appendChild(MANIGOLDO);
+  } else if (regulus.checked) {
+    REGULUS.src = "../../public/leo.jpg";
+    charterSelected.appendChild(REGULUS);
+  } else if (asmita.checked) {
+    ASMITA.src = "../../public/virgo.jpg";
+    charterSelected.appendChild(ASMITA);
+  } else if (dohko.checked) {
+    DOHKO.src = "../../public/libra.jpg";
+    charterSelected.appendChild(DOHKO);
+  } else if (kardia.checked) {
+    KARDIA.src = "../../public/escorpion.jpg";
+    charterSelected.appendChild(KARDIA);
+  } else if (sisifo.checked) {
+    SISIFO.src = "../../public/sagitario.jpg";
+    charterSelected.appendChild(SISIFO);
+  } else if (cid.checked) {
+    CID.src = "../../public/capricornio.jpg";
+    charterSelected.appendChild(CID);
+  } else if (degel.checked) {
+    DEGEL.src = "../../public/acuario.jpg";
+    charterSelected.appendChild(DEGEL);
+  } else {
+    ALFABICA.src = "../../public/picis.jpg";
+    charterSelected.appendChild(ALFABICA);
   }
 }
 
@@ -160,6 +223,30 @@ function selectionKnights() {
   } else if (manigoldo.checked) {
     spanPlayer.innerHTML = manigoldo.id;
     charter = manigoldo.id;
+  } else if (regulus.checked) {
+    spanPlayer.innerHTML = regulus.id;
+    charter = regulus.id;
+  } else if (asmita.checked) {
+    spanPlayer.innerHTML = asmita.id;
+    charter = asmita.id;
+  } else if (dohko.checked) {
+    spanPlayer.innerHTML = dohko.id;
+    charter = dohko.id;
+  } else if (kardia.checked) {
+    spanPlayer.innerHTML = kardia.id;
+    charter = kardia.id;
+  } else if (sisifo.checked) {
+    spanPlayer.innerHTML = sisifo.id;
+    charter = sisifo.id;
+  } else if (cid.checked) {
+    spanPlayer.innerHTML = cid.id;
+    charter = cid.id;
+  } else if (degel.checked) {
+    spanPlayer.innerHTML = degel.id;
+    charter = degel.id;
+  } else {
+    spanPlayer.innerHTML = alfabica.id;
+    charter = alfabica.id;
   }
   selected();
   enemyCharter();
@@ -207,13 +294,7 @@ function checkLife() {
   }
 }
 
-checkLife();
 /// COMBAT
-
-// function indexBoth(playerAttack, enemyAttack) {
-//   indexAttackplayer = attackPlayer[player];
-//   indexAttackEnemy = attackEnemy[enemy];
-// }
 
 function combat() {
   if (attackPlayer < attackEnemy) {
@@ -227,6 +308,7 @@ function combat() {
   } else {
     console.log("empate");
   }
+  checkLife();
 }
 
 /////////////////////
