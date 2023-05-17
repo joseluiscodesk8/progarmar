@@ -111,4 +111,20 @@ h1 {
   @include mixin.button;
 }
 
+.skate {
+  //border: 1px solid;
+  & img {
+    animation: cosmos infinite 2s ease-in-out;
+  }
+}
+
+@keyframes cosmos {
+  0%,
+  100% {
+    box-shadow: 0 0 0px #ffe603;
+  }
+  50% {
+    box-shadow: 0 0 40px #ffe603;
+  }
+}
 // GHOST

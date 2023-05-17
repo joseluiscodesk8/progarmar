@@ -3,3 +3,4 @@ _cacache/
 _logs/
 _update-notifier-last-checked/
 notas.txt/
+node_modules/

@@ -33,7 +33,7 @@ let virgo = new Knights("VIRGO", "../public/virgo.jpg", life);
 let libra = new Knights("LIBRA", "../public/libra.jpg", life);
 let escorpion = new Knights("ESCORPION", "../public/escorpion.jpg", life);
 let sagitario = new Knights("SAGITARIO", "../public/sagitario.jpg", life);
-let capricornio = new Knights("CAPIRCORNIO", "../public/capricornio.jpg", life);
+let capricornio = new Knights("CAPRICORNIO", "../public/capricornio.jpg", life);
 let acuario = new Knights("ACUARIO", "../public/acuario.jpg", life);
 let picis = new Knights("PICIS", "../public/picis.jpg", life);
 

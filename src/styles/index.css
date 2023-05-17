@@ -175,4 +175,17 @@ h1:hover {
 #reiniciar:active {
   background: #c2ae00;
   box-shadow: 0 0 15px #000;
+}
+
+.skate img {
+  animation: cosmos infinite 2s ease-in-out;
+}
+
+@keyframes cosmos {
+  0%, 100% {
+    box-shadow: 0 0 0px #ffe603;
+  }
+  50% {
+    box-shadow: 0 0 40px #ffe603;
+  }
 }/*# sourceMappingURL=index.css.map */

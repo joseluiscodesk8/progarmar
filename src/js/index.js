@@ -30,7 +30,7 @@ let section_button = document.getElementById("buttons");
 // CHOOSE
 
 let choose_charter = document.getElementById("button-charter");
-choose_charter.addEventListener("click", selectionKnights);
+choose_charter.addEventListener("click", selectionKnightsNames);
 
 //  LIFES
 
@@ -61,6 +61,7 @@ function playerCharter() {
     libra,
     escorpion,
     sagitario,
+    capricornio,
     acuario,
     picis
   );
@@ -86,7 +87,7 @@ function playerCharter() {
     kardia = document.getElementById("ESCORPION");
     sisifo = document.getElementById("SAGITARIO");
     cid = document.getElementById("CAPRICORNIO");
-    degel = document.getElementById("ACURIO");
+    degel = document.getElementById("ACUARIO");
     alfabica = document.getElementById("PICIS");
   });
 }
@@ -204,7 +205,7 @@ function selected() {
   }
 }
 
-function selectionKnights() {
+function selectionKnightsNames() {
   let hideKnights = document.getElementById("knights");
   hideKnights.style.display = "none";
 
@@ -319,3 +320,39 @@ function selection(min, max) {
 function reloadGame() {
   location.reload();
 }
+
+function stylesKnights() {
+  charterPlayer.className = "skate";
+}
+
+stylesKnights();
+///////////////////////
+
+//////LAZYLOAD/////////
+
+// let totalimg = 0;
+// let loadedimg = 0;
+
+// let optionsObserver = {
+//   root: null,
+//   rootMargin: "0px",
+//   threshold: 0.0,
+// };
+
+// let observer = new IntersectionObserver(playerCharter, optionsObserver);
+// observer.observe(knights);
+
+// console.log(observer);
+
+// const isIntersecting = playerCharter.isIntersecting;
+// console.log(playerCharter);
+// function loadImg(intersectionEntry) {
+//   const imgNode = intersectionEntry.target;
+//   imgNode.src = `../../public/aries.jpg`;
+//   imgNode.onload = () => {
+//     loadedimg += 1;
+//   };
+//   observer.unobserve(imgNode);
+// }
+
+// loadImg();
